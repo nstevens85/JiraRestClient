@@ -76,6 +76,19 @@ namespace TechTalk.JiraRestClient
 
         /// <summary>Returns information about the JIRA server</summary>
         ServerInfo GetServerInfo();
+
+        /// <summary>Returns changelog for issue</summary>
+        IEnumerable<Change> GetChangeLog(IssueRef issue);
+
+        /// <summary>Returns issues matching JQL query</summary>
+        IEnumerable<Issue> SearchIssues(String jql, IEnumerable<string> fields = null);
+
+        /// <summary>Returns details for a saved filter</summary>
+        Filter GetFilter(int id);
+
+        /// <summary>Returns details for a saved filter</summary>
+        IEnumerable<Status> GetStatuses();
+
     }
 
     public class JiraClient : IJiraClient
@@ -234,6 +247,41 @@ namespace TechTalk.JiraRestClient
         public ServerInfo GetServerInfo()
         {
             return client.GetServerInfo();
+        }
+
+        public IEnumerable<Change> GetChangeLog(IssueRef issue)
+        {
+            return client.GetChangeLog(issue);
+        }
+
+        public IEnumerable<Issue> SearchIssues(string jql, IEnumerable<string> fields = null)
+        {
+            return client.SearchIssues(jql, fields).Select(Issue.From);
+        }
+
+        public Filter GetFilter(int id)
+        {
+            return client.GetFilter(id);
+        }
+
+        public IEnumerable<Status> GetStatuses()
+        {
+            return client.GetStatuses();
+        }
+
+        public IEnumerable<ProjectVersion> GetVersions(string projectKey)
+        {
+            return client.GetVersions(projectKey);
+        }
+
+        public IEnumerable<Project> GetProjects()
+        {
+            return client.GetProjects();
+        }
+
+        public string GetBrowseLink(Issue issue)
+        {
+            return client.GetBrowseLink(issue);
         }
     }
 

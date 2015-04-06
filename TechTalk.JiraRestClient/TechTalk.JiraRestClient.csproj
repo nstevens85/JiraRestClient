@@ -38,11 +38,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attachment.cs" />
+    <Compile Include="ChangeLog.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="CommentsContainer.cs" />
     <Compile Include="Compatibility.cs" />
+    <Compile Include="Filter.cs" />
     <Compile Include="IssueType.cs" />
+    <Compile Include="Project.cs" />
+    <Compile Include="Resolution.cs" />
     <Compile Include="ServerInfo.cs" />
+    <Compile Include="ProjectVersion.cs" />
     <Compile Include="WatchersContainer.cs" />
     <Compile Include="IJiraClient.cs" />
     <Compile Include="Issue.cs" />

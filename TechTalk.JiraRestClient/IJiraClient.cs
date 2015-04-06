@@ -75,5 +75,30 @@ namespace TechTalk.JiraRestClient
 
         /// <summary>Returns information about the JIRA server</summary>
         ServerInfo GetServerInfo();
+
+        /// <summary>Returns changelog for issue</summary>
+        IEnumerable<Change> GetChangeLog(IssueRef issue);
+
+        /// <summary>Returns issues matching JQL query</summary>
+        /// By default, only navigable (*navigable) fields are returned in this search resource. 
+        /// Note: the default is different in the get-issue resource -- the default there all fields (*all).
+        /// *all - include all fields
+        /// *navigable - include just navigable fields
+        /// summary,comment - include just the summary and comments
+        /// -description - include navigable fields except the description (the default is *navigable for search)
+        /// *all,-comment - include everything except comments
+        IEnumerable<Issue<TIssueFields>> SearchIssues(String jql, IEnumerable<string> fields = null);
+
+        /// <summary>Returns details for a saved filter</summary>
+        Filter GetFilter(int id);
+
+        /// <summary>Returns details for a saved filter</summary>
+        IEnumerable<Status> GetStatuses();
+
+        IEnumerable<ProjectVersion> GetVersions(string projectKey);
+
+        string GetBrowseLink(Issue issue);
+
+        IEnumerable<Project> GetProjects();
     }
 }

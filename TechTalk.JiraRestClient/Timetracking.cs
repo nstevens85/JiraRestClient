@@ -6,6 +6,7 @@ namespace TechTalk.JiraRestClient
     public class Timetracking
     {
         public string originalEstimate { get; set; }
+        public string remainingEstimate { get; set; }
         public int originalEstimateSeconds { get; set; }
 
         private const decimal DayToSecFactor = 8 * 3600;

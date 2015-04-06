@@ -70,3 +70,13 @@ ability to enumerate through issues of a project
 
 **2.4.1**
 use internal property JiraIdentifier on LoadIssue and UpdateIssue
+
+**2.4.2**
+- Expose function to get the browsable link for issue
+- Add support to get list of versions associated with project
+- Add function to get list of projects on JIRA instance
+- Add function to get list of available 'Statuses' and their category's on JIRA instance
+- Add function to get list of Change Long entries for issue
+- Add function to run generic JQL search and allow specification of 'field' list to be return
+- Add field 'remainingEstimate' to the TimeTracking json parse object
+- Add 'created' and 'resolution' to IssueFields
